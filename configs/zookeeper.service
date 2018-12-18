@@ -1,0 +1,15 @@
+[Unit]
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
+
+[Service]
+Type=simple
+User=ubuntu
+ExecStart=/opt/zookeeper/zookeeper-3.4.10/bin/zkServer.sh start /opt/zookeeper/zookeeper-3.4.10/conf/zoo.cfg
+ExecStop=/opt/zookeeper/zookeeper-3.4.10/bin/zkServer.sh stop
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
+
+
